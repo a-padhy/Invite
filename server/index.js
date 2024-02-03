@@ -19,7 +19,8 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: "https://invite-app-ten.vercel.app",
+    // origin: "http://localhost:5173",
   })
 );
 
