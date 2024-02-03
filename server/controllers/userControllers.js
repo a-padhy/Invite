@@ -82,7 +82,14 @@ const loginUser = asyncHandler(async (req, res) => {
 //@route           POST /api/users/logout
 //@access          Public
 const logoutUser = asyncHandler(async (req, res) => {
-  res.cookie("token", "").status(200).json({ success: true });
+  res
+    .cookie("token", "", {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+    })
+    .status(200)
+    .json({ success: true });
 });
 
 //@description     Find user rsvps
