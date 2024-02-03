@@ -27,11 +27,18 @@ const registerUser = asyncHandler(async (req, res) => {
   });
   if (user) {
     const token = generateToken(user._id);
-    res.cookie("token", token).status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-    });
+    res
+      .cookie("token", token, {
+        httpOnly: true,
+        sameSite: "None",
+        secure: true,
+      })
+      .status(201)
+      .json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+      });
   } else {
     res.status(400);
     throw new Error("Failed to create user");
