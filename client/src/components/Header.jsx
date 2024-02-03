@@ -33,7 +33,10 @@ const Header = () => {
             <Link to="/profile" className="hover:text-indigo-500 text-xl">
               Profile
             </Link>
-            <button onClick={logoutHandle} className="hover:text-indigo-500">
+            <button
+              onClick={logoutHandle}
+              className="hover:text-indigo-500 text-xl"
+            >
               Logout
             </button>
           </>
